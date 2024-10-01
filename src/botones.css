@@ -1,0 +1,31 @@
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+    font-family: Arial; 
+    font-size: 10px; 
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green color, change as needed */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px; 
+    transition: background-color 0.2s ease-in-out;
+
+  }
+  
+  .button:hover {
+    background-color: #3E8E41; /* Darker green on hover */
+  }
+
+  .images {
+    align-items: top;
+    width: 20%;
+    height: 20%;
+    transform: translate(-0%, -10%);
+  }

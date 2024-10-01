@@ -7,30 +7,27 @@ function LoginForm({ onLoginSuccess, setErrorMessage }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // Clear any previous error messages
     setErrorMessage('');
 
     try {
-      // Make the POST request to the backend
+      // Solicitud POST con el backend
       const response = await axios.post('http://localhost:5000/login', {
         username: email,
         password,
       });
 
-      // Check if the response contains a token
+      // Verifica si la respuesta tiene un token
       if (response.data.token) {
-        // Save the token to localStorage
+        // Guarda el token de forma local
         localStorage.setItem('token', response.data.token);
 
-        // Call the success handler if login is successful
         onLoginSuccess();
       } else {
-        // Set an error message if no token is returned (login failed)
+        // Si el login falla
         setErrorMessage('Login failed.');
       }
     } catch (error) {
-      // Handle network errors or other exceptions
+      // Mensajes de error de internet
       setErrorMessage('Network error occurred.');
       console.error('Login error:', error);
     }
