@@ -1,29 +1,51 @@
-.container {
-    display: flex;
-  }
-  
-  .sidebar {
-    width: 200px;
-    height: 100vh;
-    background-color: #2F5170;
-    padding: 20px;
-    z-index: -1;
-  }
-  
-  .main-content {
-    flex: 1;
-    background-color: #fff;
-    padding: 16px;
-  }
-  
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 16px;
-    padding: 16px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
+.dashboard-container {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-value {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}

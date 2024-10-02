@@ -2,16 +2,14 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import './botones.css';
 
-function MyComponent() {
+function Botones() {
 
-  // Create an object for the button data
   const buttonData = {
     text1: 'Solicitar asesoría', 
     text2: 'Calificar asesoría',
     text3: 'Calificar taller',
   };
 
-  // Function that handles navigation
 
 
   return (
@@ -45,4 +43,4 @@ function MyComponent() {
   );
 }
 
-export default MyComponent;
+export default Botones;

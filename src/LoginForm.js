@@ -9,25 +9,27 @@ function LoginForm({ onLoginSuccess, setErrorMessage }) {
     event.preventDefault();
     setErrorMessage('');
 
+    console.log('Email:', email); // Log email and password for debugging
+    console.log('Password:', password);
+
     try {
-      // Solicitud POST con el backend
+      // Request POST to the backend
       const response = await axios.post('http://localhost:5000/login', {
-        username: email,
+        email:email,
         password,
       });
 
-      // Verifica si la respuesta tiene un token
+      // Check if the response has a token
       if (response.data.token) {
-        // Guarda el token de forma local
+        // Store the token locally
         localStorage.setItem('token', response.data.token);
-
         onLoginSuccess();
       } else {
-        // Si el login falla
+        // If login fails
         setErrorMessage('Login failed.');
       }
     } catch (error) {
-      // Mensajes de error de internet
+      // Handle network errors
       setErrorMessage('Network error occurred.');
       console.error('Login error:', error);
     }
