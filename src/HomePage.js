@@ -1,25 +1,26 @@
 import React from "react";
 import './HomePage.css';
 import Botones from "./botones";
-import './cards.css'
+import './cards.css';
 
-
-
-function HomePage() {
+function HomePage({ nombre }) {
   return (
     <div className="HomePage">
-      <div class= "container">
+      <div className="container">
         <div className="sidebar">
-        <img src={"logo2.jpg"} className="logo" alt="logo2" />
-        <Botones />
-        <div className="white-square">
-          <div className="dashboard-container"></div>
-          <div className= "card">
-            <div className="card-header">
-              <div className="card-title">TUTORÍAS</div>
-              <div className="card-value">0</div>
+          <img src={"logo2.jpg"} className="logo" alt="logo2" />
+          <Botones />
+          <div className="white-square">
+            <div className="welcome-message"> 
+              <h2>Hola {nombre}</h2> {/* Muestra el mensaje de bienvenida */}
             </div>
-          </div>
+            <div className="dashboard-container"></div>
+            <div className="card">
+              <div className="card-header">
+                <div className="card-title">TUTORÍAS</div>
+                <div className="card-value">0</div>
+              </div>
+            </div>
 
           <div className= "card">
             <div className="card-header">

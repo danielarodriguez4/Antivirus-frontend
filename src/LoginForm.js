@@ -5,35 +5,35 @@ function LoginForm({ onLoginSuccess, setErrorMessage }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setErrorMessage('');
+ const handleSubmit = async (event) => {
+  event.preventDefault();
+  setErrorMessage('');
 
-    console.log('Email:', email); // Log email and password for debugging
-    console.log('Password:', password);
+  try {
+    // Request POST to the backend
+    const response = await axios.post('http://localhost:5000/login', {
+      email,
+      password,
+    });
+    
+    console.log('Respuesta del backend:', response.data); // Verifica qué se está recibiendo
+    
 
-    try {
-      // Request POST to the backend
-      const response = await axios.post('http://localhost:5000/login', {
-        email:email,
-        password,
-      });
-
-      // Check if the response has a token
-      if (response.data.token) {
-        // Store the token locally
-        localStorage.setItem('token', response.data.token);
-        onLoginSuccess();
-      } else {
-        // If login fails
-        setErrorMessage('Login failed.');
-      }
-    } catch (error) {
-      // Handle network errors
-      setErrorMessage('Network error occurred.');
-      console.error('Login error:', error);
+    // Check if the response has a token
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+      onLoginSuccess(response.data.nombre); 
+    } else {
+      setErrorMessage('Login failed.');
     }
-  };
+    
+  } catch (error) {
+    // Handle network errors
+    setErrorMessage('Network error occurred.');
+    console.error('Login error:', error);
+  }
+};
+
 
   return (
     <form onSubmit={handleSubmit}>

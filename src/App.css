@@ -30,13 +30,14 @@
 
 .rectangulo {
   position: absolute;
+  align-items: center;
   top: 10px;
-  left: 400px;
+  left: 30%;
   width: 40%;
-  height: 100%; 
+  height: 98%; 
   background-color: white;
   border-radius: 10px;
-  z-index: 1; 
+  z-index: 1; ;
 }
 
 
